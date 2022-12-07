@@ -1,0 +1,39 @@
+<div class="container-fluid mb-5">
+  <div class="row mb-5">
+    <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt-5">
+      <div class="card-nga">
+        <h1 class="h5 card-header text-center py-4">
+          <i class="fas fa-sign-in-alt me-4"></i><strong>Se connecter</strong>
+        </h1>
+        <div class="card">
+          <h4 class="card-header">Login</h4>
+          <div class="card-body">
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <div class="mb-3">
+                      <label class="form-label">Username</label>
+                      <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                          <div *ngIf="f.username.errors.required">Username is required</div>
+                      </div>
+                  </div>
+                  <div class="mb-3">
+                      <label class="form-label">Password</label>
+                      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                      </div>
+                  </div>
+                  <div>
+                      <button [disabled]="loading" class="btn btn-primary">
+                          <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                          Login
+                      </button>
+                      <a routerLink="../register" class="btn btn-link">Register</a>
+                  </div>
+              </form>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
